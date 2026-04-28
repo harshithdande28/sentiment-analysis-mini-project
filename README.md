@@ -44,20 +44,36 @@ pip install -r requirements.txt
 python sentiment_mini_project.py
 ```
 
+**Output of test results**
+
+![Output of test results](assets/test-results-output.png)
+
 ### One custom sentence
 ```bash
 python sentiment_mini_project.py --text "I love this app"
 ```
+
+**Output of one custom sentence**
+
+![Output of one custom sentence](assets/one-custom-sentence-output.png)
 
 ### Interactive input mode
 ```bash
 python sentiment_mini_project.py --interactive
 ```
 
+**Output of interactive input mode**
+
+![Output of interactive input mode](assets/interactive-mode-output.png)
+
 ### Interactive mode with analysis of 2 user inputs
 ```bash
 python sentiment_mini_project.py --interactive --analyze
 ```
+
+**Output of interactive mode with analysis**
+
+![Output of interactive mode with analysis](assets/interactive-analysis-output.png)
 
 ## 3) Run as API
 
