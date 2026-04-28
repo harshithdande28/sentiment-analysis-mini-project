@@ -4,7 +4,6 @@ from textblob import TextBlob
 
 
 def validate_input(text):
-    """Validate input type and non-empty content."""
     if not isinstance(text, str):
         raise TypeError("Input must be a string.")
     if not text.strip():
@@ -12,13 +11,6 @@ def validate_input(text):
 
 
 def predict_sentiment(text, positive_threshold=0.15, negative_threshold=-0.15):
-    """
-    Return sentiment label and polarity score.
-    Label logic:
-    - polarity > positive_threshold -> Positive
-    - polarity < negative_threshold -> Negative
-    - otherwise -> Neutral
-    """
     validate_input(text)
     polarity = TextBlob(text).sentiment.polarity
 
@@ -33,24 +25,15 @@ def predict_sentiment(text, positive_threshold=0.15, negative_threshold=-0.15):
 
 
 def run_demo_tests():
-    """
-    Run 12 fixed test sentences:
-    - 4 positive
-    - 4 negative
-    - 4 neutral
-    """
     test_samples = [
-        # Positive (4)
         ("I absolutely loved the food and the service was excellent.", "Positive"),
         ("This new phone is amazing and works perfectly.", "Positive"),
         ("What a wonderful experience, I am very happy.", "Positive"),
         ("The team did a great job and delivered early.", "Positive"),
-        # Negative (4)
         ("I hate this app; it crashes all the time.", "Negative"),
         ("The movie was terrible and extremely boring.", "Negative"),
         ("This is the worst customer support I have ever seen.", "Negative"),
         ("I am disappointed and frustrated with the results.", "Negative"),
-        # Neutral (4)
         ("The meeting starts at 10 AM tomorrow.", "Neutral"),
         ("I bought a notebook and two pens.", "Neutral"),
         ("The package arrived on Tuesday afternoon.", "Neutral"),
@@ -91,7 +74,7 @@ def run_demo_tests():
         print(f"- Empty input check: {type(exc).__name__}: {exc}")
 
     try:
-        predict_sentiment(123)  # non-string
+        predict_sentiment(123)
     except Exception as exc:
         print(f"- Non-string input check: {type(exc).__name__}: {exc}")
 
@@ -132,7 +115,6 @@ def analyze_uncertain_or_incorrect(results, uncertain_items):
 
 
 def analyze_user_inputs(entries):
-    """Analyze 2 predictions from interactive user inputs."""
     print("\nBrief analysis of 2 predictions from your input:")
 
     if not entries:
@@ -155,7 +137,6 @@ def analyze_user_inputs(entries):
 
 
 def run_interactive_mode(show_analysis=False):
-    """Accept user text repeatedly until they type 'quit'."""
     print("Interactive mode enabled. Type a sentence and press Enter.")
     print("Type 'quit' to exit.")
     if show_analysis:
@@ -189,17 +170,14 @@ if __name__ == "__main__":
     parser.add_argument(
         "--text",
         type=str,
-        help="Analyze one sentence directly from command line.",
     )
     parser.add_argument(
         "--interactive",
         action="store_true",
-        help="Run interactive mode to input multiple sentences.",
     )
     parser.add_argument(
         "--analyze",
         action="store_true",
-        help="Show brief analysis of 2 incorrect/uncertain predictions in demo mode, or 2 user inputs in interactive mode.",
     )
     args = parser.parse_args()
 
