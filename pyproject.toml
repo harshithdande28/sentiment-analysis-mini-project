@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sentiment-analysis-mini-project"
+version = "1.0.0"
+description = "Mini NLP project with TextBlob sentiment script and FastAPI service."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "Harsh" }
+]
+dependencies = [
+  "textblob",
+  "fastapi",
+  "uvicorn"
+]
+
+[tool.setuptools]
+py-modules = ["sentiment_mini_project", "api"]
