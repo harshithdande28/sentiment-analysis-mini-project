@@ -101,18 +101,3 @@ curl -X POST "http://127.0.0.1:8000/predict/batch" ^
 - Non-string input -> rejected
 - Empty batch list -> rejected
 
-## 5) GitHub Repo Steps
-
-```bash
-git init
-git add .
-git commit -m "Add sentiment analysis mini project with FastAPI and README"
-```
-
-Then create a GitHub repo and push:
-
-```bash
-git branch -M main
-git remote add origin <your-repo-url>
-git push -u origin main
-```
